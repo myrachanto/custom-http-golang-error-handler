@@ -1,4 +1,4 @@
-module github.com/myrachanto/http_error_handler
+module github.com/myrachanto/custom-http-golang-error-handler
 
 go 1.17
 
