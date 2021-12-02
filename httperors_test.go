@@ -10,25 +10,25 @@ import (
 
 
 func TestNewBadRequestError(t *testing.T){
-	err := HttperrorHnadler.NewBadRequestError("this is the message")
+	err := NewBadRequestError("this is the message")
 	assert.NotNil(t,err)
-	assert.EqualValues(t, http.StatusBadRequest, err.Code)
-	assert.EqualValues(t, "this is the message", err.Message)
-	assert.EqualValues(t, "bad request", err.Error)
+	assert.EqualValues(t, http.StatusBadRequest, err.Code())
+	assert.EqualValues(t, "this is the message", err.Message())
+	assert.EqualValues(t, "Bad Request", err.Errors())
 }
 func TestNewNotFoundError(t *testing.T){
-	err := HttperrorHnadler.NewNotFoundError("this is the message")
+	err := NewNotFoundError("this is the message")
 	assert.NotNil(t,err)
-	assert.EqualValues(t, http.StatusNotFound, err.Code)
-	assert.EqualValues(t, "this is the message", err.Message)
-	assert.EqualValues(t, "Not Found", err.Error)
+	assert.EqualValues(t, http.StatusNotFound, err.Code())
+	assert.EqualValues(t, "this is the message", err.Message())
+	assert.EqualValues(t, "Not Found", err.Errors())
 
 }
-func TestNewSuccessMessage(t *testing.T){
-	err := HttperrorHnadler.NewSuccessMessage("Deletion was a success")
+func TestNewAnuthorizedError(t *testing.T){
+	err := NewAnuthorizedError("You are unathorized")
 	assert.NotNil(t,err)
-	assert.EqualValues(t, http.StatusOK, err.Code)
-	assert.EqualValues(t, "Deletion was a success", err.Message)
-	assert.EqualValues(t, "Delete success", err.Error)
+	assert.EqualValues(t, http.StatusUnauthorized, err.Code())
+	assert.EqualValues(t, "You are unathorized", err.Message())
+	assert.EqualValues(t, "Unauthorized", err.Errors())
 
 }
